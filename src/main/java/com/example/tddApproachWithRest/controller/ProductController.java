@@ -20,6 +20,6 @@ public class ProductController {
     @PostMapping("/products")
     public ResponseEntity<Product> storeProduct(@Valid @RequestBody Product product){
         product = productService.saveProduct(product);
-        return new ResponseEntity<>(product, HttpStatus.OK);
+        return new ResponseEntity<>(product, HttpStatus.CREATED); // Return 201 Created
     }
 }

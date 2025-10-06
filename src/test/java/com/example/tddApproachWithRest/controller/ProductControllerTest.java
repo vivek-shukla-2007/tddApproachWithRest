@@ -55,7 +55,7 @@ public class ProductControllerTest {
         mockMvc.perform(post("/products")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(productJson))
-                .andExpect(status().isOk())
+                .andExpect(status().isCreated()) // Expect 201 Created
                 .andExpect(jsonPath("$.productId").value(1L))
                 .andExpect(jsonPath("$.productName").value("phone"))
                 .andExpect(jsonPath("$.productPrice").value(2.0));

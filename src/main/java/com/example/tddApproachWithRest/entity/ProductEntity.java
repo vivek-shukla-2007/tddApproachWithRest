@@ -26,8 +26,10 @@ public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // Must not be final
+
+    @Column(name = "productName")
     private String productName; // Must not be final
-    @Column(precision = 19, scale = 4) // Define column for currency
+    @Column(name = "productPrice", precision = 19, scale = 4)// Define column for currency
     private BigDecimal productPrice; // Must not be final
 
     // Safer equals/hashCode for JPA entities than what @Data provides

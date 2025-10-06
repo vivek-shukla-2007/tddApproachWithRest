@@ -1,19 +1,18 @@
 spring:
   jpa:
     hibernate:
-      ddl-auto: validate #it forces flyway to do migration first
-  application:
-    name: tddApproachWithRest
+      ddl-auto: none
+    show-sql: true
   datasource:
     url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MYSQL;DATABASE_TO_UPPER=false;INIT=CREATE SCHEMA IF NOT EXISTS retailstore\;SET SCHEMA retailstore
     driver-class-name: org.h2.Driver
     username: sa
     password:
-    platform: h2
   h2:
     console:
     enabled: true
     path: /h2-console
   flyway:
-    schemas: retailstore # Tell Flyway to manage this schema
-    create-schemas: true # Allow Flyway to create the schema if it doesn't exist
+    schemas: retailstore
+    create-schemas: true
+    clean-disabled: false
