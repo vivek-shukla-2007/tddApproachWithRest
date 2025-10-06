@@ -1,6 +1,8 @@
 package com.example.tddApproachWithRest.repository;
 
+import com.example.tddApproachWithRest.config.ManualFlywayMigrationIntegrationTest;
 import com.example.tddApproachWithRest.entity.ProductEntity;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -15,7 +17,7 @@ import java.util.Optional;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@Import(FlywayAutoConfiguration.class)
+@Import(ManualFlywayMigrationIntegrationTest.class)
 public class ProductRepositoryTest {
 
     @Autowired
@@ -23,6 +25,8 @@ public class ProductRepositoryTest {
 
     @Autowired
     private ProductRepository productRepository;
+
+
 
     @Test
     void testSaveAndFindById_whenSaved_thenCanBeFound() {
